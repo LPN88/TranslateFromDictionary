@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Translator\SimpleTranslator.cs" />
     <Compile Include="Tree\ITreeNode.cs" />
     <Compile Include="Storage\SimpleStorage.cs" />
     <Compile Include="Translator\BadTranslator.cs" />
@@ -52,7 +53,7 @@
     <Compile Include="Tree\TreeLeaf.cs" />
     <Compile Include="Tree\TreeNode.cs" />
     <Compile Include="Storage\TreeStorage.cs" />
-    <Compile Include="Translator\Translator.cs" />
+    <Compile Include="Translator\TreeTranslator.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

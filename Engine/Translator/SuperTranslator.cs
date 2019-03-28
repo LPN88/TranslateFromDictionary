@@ -26,7 +26,7 @@ namespace Engine.Translator
             }
             else
             {
-                //если maxThreadCount!=0, то создаем планировщик для управления кол-ом одновременно создаваемых потоков
+                //если maxThreadCount!=0, то создаем планировщик для управления кол-ом параллельно создаваемых потоков
                 LimitedConcurrencyLevelTaskScheduler lcts = new LimitedConcurrencyLevelTaskScheduler(maxThreadCount);
                 _factory = new TaskFactory(lcts);
             }         
@@ -85,7 +85,7 @@ namespace Engine.Translator
                     else
                     {
                         strBuilder.Append(RecursiveReturnBack(prevNode, new StringBuilder(), ref curIndex));
-                        ContinuousReplace((_storage as ITreeStorage).RootNode, oldLine, ref strBuilder, curIndex);
+                        ContinuousReplace(_storage.RootNode, oldLine, ref strBuilder, curIndex);
                     }
                 }
                 else
@@ -105,7 +105,7 @@ namespace Engine.Translator
 
         }
 
-        //Возврат назад после отсутсвия найденной подстроки в дереве и нахождения подходящего более короткого слова
+        //Возврат назад после отсутсвия найденной подстроки в дереве и нахождения подходящего более короткого слова из словаря
         private StringBuilder RecursiveReturnBack(ITreeNode prevNode, StringBuilder str, ref int curIndex)
         {
             if (prevNode is TreeLeaf)

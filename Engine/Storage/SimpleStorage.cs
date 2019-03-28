@@ -20,7 +20,7 @@ namespace Engine.Storage
 
     }
 
-    //Компаратор для хранилища для простого переводчика
+    //Компаратор хранилища для простого переводчика
     public sealed class ReverseComparer : IComparer<string>
     {      
         public int Compare(string x, string y)

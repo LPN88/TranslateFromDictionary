@@ -44,14 +44,14 @@ namespace TranslateFromDictionary_ConsoleApp
 
         static void Main(string[] args)
         {
-            //FillDict();
-            //FillIn();
+            FillDict();
+            FillIn();
             int maxThreadCount = 0;
             var readerDict = new StreamReader(dictPath);
             var reader = new StreamReader(inputPath);
             var writer = new StreamWriter(outputPath);
             var container = BuildUnityContainer();            
-            var translator = container.Resolve<ITranslator>(new ParameterOverride(typeof(TextReader), readerDict), new ParameterOverride(typeof(int), maxThreadCount));
+            var translator = container.Resolve<ITranslator>(new ParameterOverride(typeof(TextReader), readerDict), new ParameterOverride(typeof(int), maxThreadCount));    
             var watcher = Stopwatch.StartNew();
             translator.Translate(reader, writer);
             watcher.Stop();
@@ -80,7 +80,7 @@ namespace TranslateFromDictionary_ConsoleApp
             return currentContainer;
         }
 
-        //заполняем словарь
+        //заполняем словарь для перевода
         static void FillDict()
         {
             using (var fs = new StreamWriter(dictPath,false))

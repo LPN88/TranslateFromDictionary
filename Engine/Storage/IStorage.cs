@@ -10,7 +10,6 @@ namespace Engine.Storage
     public interface IStorage
     {
         void Add(string wordKey, string wordValue);       
-
     }
 
     public interface ITreeStorage: IStorage
